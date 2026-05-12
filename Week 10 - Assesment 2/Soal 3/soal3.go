@@ -1,16 +1,18 @@
 package main
+
 import "fmt"
 
 const nProv int = 10
-type namaProv [nProv] string
-type popProv [nProv] int
-type tumbuhProv [nProv] float64
+
+type namaProv [nProv]string
+type popProv [nProv]int
+type tumbuhProv [nProv]float64
 
 func InputData(prov *namaProv, pop *popProv, tumbuh *tumbuhProv) {
 	for i := 0; i < nProv; i++ {
 		fmt.Printf("Masukkan data ke-%d: ", i+1)
 		fmt.Scan(&(*prov)[i], &(*pop)[i], &(*tumbuh)[i])
-	} 
+	}
 }
 
 func provinsiTercepat(tumbuh tumbuhProv) int {
@@ -30,7 +32,7 @@ func prediksi(prov namaProv, pop popProv, tumbuh tumbuhProv) {
 			hasil := (tumbuh[i] + 1) * float64(pop[i])
 			fmt.Printf("%s %.0f\n", prov[i], hasil)
 		}
-	}	
+	}
 }
 
 func indexProvinsi(prov namaProv, nama string) int {
@@ -46,7 +48,7 @@ func main() {
 	var pop popProv
 	var tumbuh tumbuhProv
 	var namaCari string
-	
+
 	fmt.Println("=== Masukkan Nama Provinsi, Populasi Provinsi, Angka Pertumbuhan Provinsi ===")
 	InputData(&prov, &pop, &tumbuh)
 
@@ -58,14 +60,11 @@ func main() {
 	mencari := indexProvinsi(prov, namaCari)
 	if mencari != -1 {
 
-		fmt.Println("Data provinsi yang dicari: ",prov[mencari])
-	}else {
+		fmt.Println("Data provinsi yang dicari: ", prov[mencari])
+	} else {
 		fmt.Println("Data provinsi tidak ditemukan")
 	}
 
-	prediksi(prov,pop,tumbuh)
-
-	
-
+	prediksi(prov, pop, tumbuh)
 
 }
