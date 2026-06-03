@@ -10,12 +10,12 @@ func SelectionSortArray(sMHS *[5]mahasiswa){
 	var idx_min, i, j int
 	for i = 0; i < len(sMHS)-1; i++ { //perulangan luar
 		idx_min = i;
-		for j = i + 1; j < len(sMHS); j++ { //perulangan dalam
-			if sMHS[j].IPK < sMHS[idx_min].IPK { //kondisional
+		for j = i + 1; j < len(sMHS); j++ { //loop dalam mencari nilai ekstrim
+			if sMHS[j].IPK < sMHS[idx_min].IPK { //sorting terkecil ke terbesar
 				idx_min = j
 			}
 		}
-		if idx_min != i { //swap
+		if idx_min != i { 
 			sMHS[i], sMHS[idx_min] = sMHS[idx_min], sMHS[i]
 		}
 	}

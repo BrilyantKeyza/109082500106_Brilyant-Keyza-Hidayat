@@ -32,4 +32,7 @@ func main(){
 
 	SelectionSortArray(&arrAngka)
 	fmt.Println("=== SETELAH SORTING ===")
+	for i := 0; i < len(arrAngka); i++ {
+		fmt.Print(arrAngka[i], " ")
+	}
 }
